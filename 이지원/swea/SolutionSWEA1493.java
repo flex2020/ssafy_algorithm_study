@@ -36,7 +36,7 @@ public class SolutionSWEA1493 {
  
     public static int function1 (Position position) {
         int n = position.x + position.y - 1;
-        int num = factorial(n - 1) + 1;
+        int num = nSum(n - 1) + 1;
         for (int i = 1; i <= n; i++) {
             if (position.x == i) {
                 break;
@@ -46,25 +46,23 @@ public class SolutionSWEA1493 {
         return num;
     }
  
-    public static int factorial(int n) {
+    public static int nSum(int n) {
         if (n == 0) {
             return 0;
-        } else if (n == 1) {
-            return 1;
         }
-         
-        return n + factorial(n - 1);
+        
+        return n * (n + 1) / 2;
     }
  
     public static Position function2 (int num) {
         Position position = new Position();
          
-        int n = factorial(position.y - 1) + 1;
-        int nextN = factorial(position.y) + 1;
+        int n = nSum(position.y - 1) + 1;
+        int nextN = nSum(position.y) + 1;
         while (nextN <= num) {
             position.y++;
             n = nextN;
-            nextN = factorial(position.y) + 1;
+            nextN = nSum(position.y) + 1;
         }
  
         while (n != num) {
