@@ -36,13 +36,7 @@ public class SolutionSWEA1493 {
  
     public static int function1 (Position position) {
         int n = position.x + position.y - 1;
-        int num = nSum(n - 1) + 1;
-        for (int i = 1; i <= n; i++) {
-            if (position.x == i) {
-                break;
-            }
-            num++;
-        }
+        int num = nSum(n - 1) + position.x;
         return num;
     }
  
