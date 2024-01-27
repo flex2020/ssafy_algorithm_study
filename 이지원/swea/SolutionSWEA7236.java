@@ -29,6 +29,10 @@ public class SolutionSWEA7236 {
             int maxSum = Integer.MIN_VALUE;
             for (int i = 1; i <= N; i++) {
                 for (int j = 1; j <= N; j++) {
+                    if (inputs[i][j].equals("G")) {
+                        continue;
+                    }
+
                     int sum = 0;
                     for (int k = 0; k < dx.length; k++) {
                         if (inputs[i + dx[k]][j + dy[k]].equals("W")) {
