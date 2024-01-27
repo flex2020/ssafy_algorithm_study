@@ -28,9 +28,7 @@ public class SolutionSWEA7964 {
                 }
                 
                 index += D;
-                if (index < map.length && map[index] == 0) {
-                    result++;
-                }
+                result++;
             }
 
             System.out.println("#" + testCase + " " + result);
