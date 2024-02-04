@@ -1,5 +1,3 @@
-package boj;
-
 import java.util.*;
 import java.io.*;
 import java.awt.Point;
