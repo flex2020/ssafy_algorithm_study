@@ -22,17 +22,13 @@ public class Main {
 
 
         room = new int[R][C];
-
-//        Arrays.fill(room[0], -1);
-//        Arrays.fill(room[R + 1], -1);
+        
         for (int i = 0; i < R; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < C; j++) {
                 room[i][j] = Integer.parseInt(st.nextToken());
                 if(room[i][j]==-1) purifier=i;
             }
-//            room[i][0] = -1;
-//            room[i][C + 1] = -1;
         }
 //        print();
 
@@ -50,6 +46,7 @@ public class Main {
 
     }
 
+    // 출력해보는 메소드
     private static void print(){
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < R; i++) {
@@ -61,6 +58,7 @@ public class Main {
         System.out.println(sb);
     }
 
+    // 미세먼지가 퍼지는 메소드
     private static int[][] spread(){
         int[][] arr = new int[R][C];
         for (int i = 0; i < R; i++) {
@@ -84,11 +82,13 @@ public class Main {
         return arr;
     }
 
+    // 청정시키는 메소드
     private static void purify(){
         counterClockwiseTurn(purifier-1);
         clockwiseTurn(purifier);
     }
 
+    // 반시계로 돌리는 메소드
     private static void counterClockwiseTurn(int purifier){
         int x=purifier-1;
         int y=0;
@@ -109,6 +109,7 @@ public class Main {
         room[purifier][1]=0;
     }
 
+    // 시계로 돌리는 메소드
     private static void clockwiseTurn(int purifier){
         int x=purifier+1;
         int y=0;
