@@ -1,3 +1,4 @@
+package 강윤서.boj;
 import java.io.*;
 import java.util.*;
 class CCTV {
