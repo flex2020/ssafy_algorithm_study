@@ -83,7 +83,6 @@ public class SolutionBaekJoon4991 {
 	
 	// dirtyCount: 로봇 번호
 	public static void calculateLength() {
-		// 더러운 곳끼리의 거리 구하기
 		aa: for (int i = 0; i < dirtyCount; i++) {
 			Position dirty = dirtyPositions.get(i);
 			
