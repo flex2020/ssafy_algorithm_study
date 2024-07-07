@@ -21,7 +21,8 @@ public class Main_1749 {
                 sum[i][j] = sum[i - 1][j] + sum[i][j - 1] + board[i][j] - sum[i - 1][j - 1];
             }
         }
-        int answer = Integer.MIN_VALUE;
+        
+        int answer = Integer.MIN_VALUE; // 0 아닌 거 주의 ! 
         for (int startR = 1; startR <= N; startR++) {
             for (int startC = 1; startC <= M; startC++) {
                 for (int endR = startR; endR <= N; endR++) {
