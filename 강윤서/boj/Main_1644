@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        List<Integer> primeList = new ArrayList<>();
+        boolean[] isPrime = new boolean[N+1];
+        for (int i=2; i<=N; i++) {
+            if (isPrime[i]) continue;
+            primeList.add(i);
+            for (int j=i; j <= N; j+=i) {
+                isPrime[j] = true;
+            }
+        }
+        int primeNumberCnt = primeList.size();
+        int[] dp = new int[primeNumberCnt+1];
+        for (int i=1; i<=primeNumberCnt; i++) {
+            dp[i] = dp[i-1] + primeList.get(i-1);
+        }
+//        System.out.println(primeList);
+//        System.out.println(Arrays.toString(dp));
+        int answer = 0;
+        for (int i=0; i<primeNumberCnt+1; i++) {
+            for (int j=i+1; j<primeNumberCnt+1; j++) {
+//                System.out.println(i + " " + j + " " + dp[i]);
+                int value = dp[j] - dp[i];
+                if (value == N) answer++;
+                else if (value > N) break;
+            }
+        }
+        System.out.println(answer);
+    }
+}
